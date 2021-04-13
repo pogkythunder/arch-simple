@@ -27,7 +27,7 @@ and boot into the newly installed system.
  
  Same goes for the kernel. There is no default, but if you are unsure, simply use the regular one: <code>linux</code>.
  
- Then pick a Desktop Environment, Window Manager out of the supported selections. E.g. <code>KDE</code>.
+ Then pick a Desktop Environment, Window Manager out of the supported selections.
  
  Finally, choose the countries in which the program will look for the fastest mirrors. In most cases, the optimal choices are countries close to your geographical location.
  Example: <code>Germany,France,Belgium</code>. Do not use spaces or quotation marks.
@@ -46,7 +46,7 @@ and boot into the newly installed system.
  
  This was the primary reason I created this script. It creates an environment almost equivalent to that of my daily use. Therefore, it is ideal for someone who        wants to try dwm in a virtual machine
 
- without having to go through the process of configuring it. 
+ without having to go through the process of configuring it. Change the drive name in the same way as described above to match your virtual machine's parameters.
 
  Open the terminal with <code>ctrl_shift_t</code>. View useful aliases and commands in <code>bashrc</code>. View the dwm
 
