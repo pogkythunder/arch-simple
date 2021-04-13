@@ -57,6 +57,5 @@ and boot into the newly installed system.
  You can also install a plain DWM. The usual shortcuts and configurations apply. After login, run <code>startx</code> to begin the session
 
  **Important:** Currently, the script only works for UEFI systems.
-**Important:** Currently, the script only works for UEFI systems.
  
  
