@@ -32,33 +32,31 @@ and boot into the newly installed system.
  Finally, choose the countries in which the program will look for the fastest mirrors. In most cases, the optimal choices are countries close to your geographical location.
  Example: <code>Germany,France,Belgium</code>. Do not use spaces or quotation marks.
  
- **Post-install**
- 
- Once the process is complete, you should have a working environment. In case you decided to use the preconfigured DWM
- you must also install a few AUR packages. These are listed as a comment in the script, right after the installation of yay (currently at line 130). Other than that, the computer is ready for use.
- 
-  **KDE**
+   **KDE**
 
  This is the default plasma desktop. Konsole and dolphin are the only apps installed.
- 
+
  **GNOME**
  
  Much like KDE, this installs the default Gnome desktop. Mind that gnome-terminal doesn't seem to work with the default
+
  locale, so I added konsole to its download list. Use it to change to your locale and fix the default terminal, then uninstall it, if you want.
- 
+
  **DWM-MOST features**
  
- This was the primary reason I created this script. It creates an environment almost equivalent to that of my daily use. Therefore, it is ideal for someone who wants to try dwm in a virtual machine
+ This was the primary reason I created this script. It creates an environment almost equivalent to that of my daily use. Therefore, it is ideal for someone who        wants to try dwm in a virtual machine
+
  without having to go through the process of configuring it. 
- 
+
  Open the terminal with <code>ctrl_shift_t</code>. View useful aliases and commands in <code>bashrc</code>. View the dwm
+
  configuration with <code>dwmc</code>. The default text editor is vim. Session starts automatically after login.
- 
+
  **DWM-CORE**
- 
+
  You can also install a plain DWM. The usual shortcuts and configurations apply. After login, run <code>startx</code> to begin the session
- 
- 
+
  **Important:** Currently, the script only works for UEFI systems.
+**Important:** Currently, the script only works for UEFI systems.
  
  
