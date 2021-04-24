@@ -49,17 +49,9 @@ csd() {
 
 
 rm() {
-	files=("$@")
-	if ! [[ -d ${files[*]} ]]; then
-		read -rp $"Deleting ${files[*]}. Are you sure? (y/n): " delete
-		if [[ $delete == "y" ]]; then
-			rmdir "${files[@]}"
-		fi
-	else
-		read -rp $"Deleting ${files[*]}. Are you sure? (y/n): " delete
-		if [[ $delete == "y" ]]; then
-			for i in "${files[@]}"; do unlink "$i"; done
-		fi
+	read -rp 'Deleting. Are you sure? (y/n): ' delete
+	if [[ $delete == "y" ]]; then
+		/usr/bin/rm -r "$@"
 	fi
 }
 
