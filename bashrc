@@ -31,15 +31,11 @@ alias ping='ping archlinux.org'
 alias remind='/home/jim/Scripts/Reminder/reminder.sh'
 
 
-cdl() {
-	local dir="$1"
-	local dir="${dir:=$HOME}"
-	if [[ -d "$dir" ]]; then
-		cd "$dir" >/dev/null; ls --color=auto
-	else
-		echo "bash: cdl: $dir: Directory not found"
-	fi
+cd () {
+    ls $@ &&
+    command cd $@
 }
+
 
 
 csd() {
