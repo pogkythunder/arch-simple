@@ -75,21 +75,23 @@ xset r rate 200 &
 # hide pointer after some inactivity
 unclutter --timeout 4 &
 
-# mail
-protonmail-bridge &
-bubblemail &
-
 # messaging
-element-desktop &
-
-# passwords
-keepassxc &
+#element-desktop &
+st -e gomuks &
 
 # keyboard shortcuts
 xbindkeys &
 
-# eye relief
-redshift -O 5500 &
+# mail
+#electron-mail &
+protonmail-bridge &
+bubblemail &
+# st -e mutt &
+
+# browser
+firefox &
+
+(sleep 5; st -e mutt) &
 
 twm &
 xclock -geometry 50x50-1+1 &
