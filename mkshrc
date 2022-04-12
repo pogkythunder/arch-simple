@@ -1,0 +1,137 @@
+#!/bin/sh
+
+HISTFILE=/home/jim/.mksh_history
+
+
+
+blue="\e[34m\e[1m"
+nc="\e[0m"
+
+alias ls='ls --color=auto'
+PS1='[$USER@jim-pc $(pwd | sed 's#.*/##')]\$ '
+
+alias vpnd='doas protonvpn disconnect'
+
+alias vpnc='doas protonvpn connect -f'
+
+alias reboot='doas reboot' 
+
+alias shut='doas poweroff'
+
+alias dwmc='vim ~/Programs/dwm-6.2/config.def.h && cd /home/jim/Programs/dwm-6.2'
+
+alias dwmmc='doas rm config.h && doas make clean install'
+
+alias dwmcd='cd /home/jim/Programs/dwm-6.2'
+
+alias ping='ping gentoo.org'
+
+alias calendar='/home/jim/Scripts/Calendar/calendar.sh'
+
+alias time='/home/jim/Scripts/time/time.sh'
+
+bind '^L'=clear-screen
+
+cd() {
+	if [ -f "$@" ]; then
+		command cd /home/jim
+	elif [ "$@" = "..."  ]; then
+		command cd ..;
+		command cd ..;
+	elif [ "$@" = "...." ]; then
+		command cd ..;
+		command cd ..;
+		command cd ..;
+	elif [ "$@" = "....." ]; then
+		command cd ..;
+		command cd ..;
+		command cd ..;
+		command cd ..;
+	elif [ "$@" = "......" ]; then
+		command cd ..;
+		command cd ..;
+		command cd ..;
+		command cd ..;
+		command cd ..;
+	elif [ "$@" = "......." ]; then
+		command cd ..;
+		command cd ..;
+		command cd ..;
+		command cd ..;
+		command cd ..;
+		command cd ..;
+	else
+		command cd "$@"
+	fi
+	ls
+}
+
+
+
+csd() {
+	c=$1; count=${#c}; i=0
+	while [ $i -lt $count ]; do command cd ..; ((i=i+1)); done
+}
+
+
+
+rm() {
+	echo Will delete the following:
+	for entry in "$@"; do
+		if [ -d "$entry" ]; then
+			echo -e $blue$entry$nc
+		else
+			echo $entry
+		fi
+	done
+	while true; do
+		echo "Continue? (Y/n) "
+		read delete
+		if [ "$delete" = y ] || ! [ -n "$delete" ]; then
+			command rm -R "$@"
+			echo -e ""
+			break
+		else
+			echo -e ""
+			break
+		fi
+	done
+}
+
+vim() {
+	if [ -f "$*" ]; then
+		/usr/bin/vim "$*"
+	elif ! [ -f "$*" ] && [ "$*" == *.tex* ]; then
+		touch "$*"
+		cp /home/jim/Sync/Useful_Stuff/Latex/template "$*"
+		/usr/bin/vim "$*"
+	elif ! [ -f "$*" ] && ! [ "$*" == *.tex* ]; then
+		touch "$*"
+		/usr/bin/vim "$*"
+	elif [ "$1" == "-*" ]; then
+		/usr/bin/vim "$1" "$2"
+	fi
+}
+
+
+clock ()
+{
+	while true;do clear;echo "===========";date +"%r";echo "===========";sleep 1;done
+}
+
+if [ -f /etc/bash_completion ]; then
+	    /etc/bash_completion
+fi
+
+f() {
+	fff "$@"
+	cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+}
+
+
+/home/jim/Programs/fet.sh/fet.sh
+#source /home/jim/Scripts/fff_conf/fff.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
